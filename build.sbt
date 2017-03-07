@@ -20,7 +20,8 @@ lazy val akkaHttpDependency = Seq(
 
 lazy val core: Seq[ModuleID] = Seq(
   "com.typesafe" % "config" % "1.3.0",
-  "org.slf4j" % "slf4j-api" % "1.7.22"
+  "org.slf4j" % "slf4j-api" % "1.7.22",
+  "org.typelevel" %% "cats" % "0.9.0"
 )
 lazy val logging = Seq(
   "ch.qos.logback" % "logback-classic" % "1.1.7"
