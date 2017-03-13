@@ -10,6 +10,7 @@ mainClass := Some("Init")
 lazy val akkaHttpVersion = "10.0.0"
 
 lazy val akkaHttpDependency = Seq(
+  "com.typesafe.akka" %% "akka-persistence" % "2.4.14",
   "com.typesafe.akka" %% "akka-actor" % "2.4.14",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion,
@@ -21,7 +22,8 @@ lazy val akkaHttpDependency = Seq(
 lazy val core: Seq[ModuleID] = Seq(
   "com.typesafe" % "config" % "1.3.0",
   "org.slf4j" % "slf4j-api" % "1.7.22",
-  "org.typelevel" %% "cats" % "0.9.0"
+  "org.typelevel" %% "cats" % "0.9.0",
+  "commons-codec" % "commons-codec" % "1.10"
 )
 lazy val logging = Seq(
   "ch.qos.logback" % "logback-classic" % "1.1.7"
