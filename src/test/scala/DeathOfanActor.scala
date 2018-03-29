@@ -30,13 +30,13 @@ class DeathOfAnActor extends TestKit(ActorSystem("the_system"))
 
     "test with test actor" in {
       val actorRef = TestActorRef[FirstActor]
-      actorRef ! Add(20)
+      actorRef ! other.Add(20)
       actorRef.underlyingActor.counter mustBe 20
     }
 
     "send report to implicit sender" in {
       val fa = system.actorOf(Props(new FirstActor))
-      fa ! Add(50)
+      fa ! other.Add(50)
       fa ! Inc
       fa ! Report
       expectMsg(ActorReport(51))
@@ -44,9 +44,9 @@ class DeathOfAnActor extends TestKit(ActorSystem("the_system"))
 
     "should reset its state after exception" in {
       val fa = system.actorOf(Props(new FirstActor))
-      fa ! Add(50)
+      fa ! other.Add(50)
       fa ! Fail
-      fa ! Add(50)
+      fa ! other.Add(50)
       fa ! Report
       expectMsg(ActorReport(50)) // because actor was re-created from scratch after exception
     }
